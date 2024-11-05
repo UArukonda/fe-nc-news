@@ -6,13 +6,19 @@ const Articles = () => {
   const [articleList, setArticleList] = useState([
     { id: 1, desc: "lorem epson" },
   ]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     fetchArticles().then((response) => {
-      console.log(response);
+      setIsLoading(false);
       setArticleList(response);
     });
   }, []);
+
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
+
   return (
     <div>
       <ul className="article-list">

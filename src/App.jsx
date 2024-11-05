@@ -1,16 +1,18 @@
 // import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
-import Header from "./components/Header";
 import Articles from "./components/Articles";
+import ArticleCard from "./components/ArticleCard";
+import Home from "./components/Home";
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <Routes>
-          {/* <Route path="/" element={<Header />} /> */}
-          <Route path="/" element={<Articles />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/articles" element={<Articles />} />
+          <Route path="/articles/:article_id" element={<ArticleCard />} />
         </Routes>
       </BrowserRouter>
     </>
