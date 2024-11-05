@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { fetchArticles } from "../utils/api";
 import ArticleCard from "./ArticleCard";
+import Header from "./Header";
 
 const Articles = () => {
   const [articleList, setArticleList] = useState([
@@ -20,13 +21,16 @@ const Articles = () => {
   }
 
   return (
-    <div>
-      <ul className="article-list">
-        {articleList.map((article) => {
-          return <ArticleCard article={article} key={article.id} />;
-        })}
-      </ul>
-    </div>
+    <>
+      <Header />
+      <seaction>
+        <ul className="article-list">
+          {articleList.map((article) => {
+            return <ArticleCard article={article} key={article.article_id} />;
+          })}
+        </ul>
+      </seaction>
+    </>
   );
 };
 
