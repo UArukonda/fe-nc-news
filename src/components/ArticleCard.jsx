@@ -1,23 +1,29 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
 const ArticleCard = ({ article }) => {
-  console.log(article.article_id);
   return (
     <>
-      <ul className="article-card">
-        <li>User: {article.author}</li>
-        <Link to={`/articles/1`}>
-          <img src={article.article_img_url} alt="" width={"200px"} />
+      <div className="article-card">
+        <header>
+          <p>User: {article.author}</p>
+        </header>
+        <Link to={`/articles/${article.article_id}`}>
+          <img
+            src={article.article_img_url}
+            alt={article.title}
+            width="200px"
+          />
         </Link>
-        <li>
+        <section>
           <h2>{article.title}</h2>
-        </li>
-        <li>{article.topic}</li>
-        <li>{article.created_at}</li>
-        <li>{article.comment_count} Comments</li>
-        <li>{article.votes} Likes</li>
-      </ul>
+          <p>Topic: {article.topic}</p>
+          <p>Date: {new Date(article.created_at).toLocaleDateString()}</p>
+        </section>
+        <footer>
+          <p>{article.comment_count} Comments</p>
+          <p>{article.votes} Likes</p>
+        </footer>
+      </div>
     </>
   );
 };

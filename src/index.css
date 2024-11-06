@@ -83,9 +83,8 @@ ul.article-list {
 /* ArticleCard */
 .article-card {
   width: 90%;
-  border: 1px solid #e0e0e0;
   background-color: #f5f5f5;
-  list-style-type: none;
+  justify-content: center;
   color: #333333;
   display: flex;
   flex-direction: column;
@@ -148,7 +147,7 @@ ul.article-list {
 
   .article-card {
     width: 320px;
-    height: 380px;
+    height: fit-content;
   }
 
   #welcome-greeting-container {
