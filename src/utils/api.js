@@ -19,7 +19,6 @@ export const fetchSingleArticle = (article_id) => {
   return api
     .get(`/api/articles/${article_id}`)
     .then((response) => {
-      console.log(response);
       return response.data.article;
     })
     .catch((err) => {

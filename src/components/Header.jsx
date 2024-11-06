@@ -8,18 +8,18 @@ const Header = () => {
       </Link>
       <nav>
         <ul id="nav-bar">
-          <Link to="/">
-            <li className="nav-item">Home</li>
-          </Link>
-          <Link to="/articles">
-            <li className="nav-item">Articles</li>
-          </Link>
-          <Link to="/users">
-            <li className="nav-item">Users</li>
-          </Link>
-          <Link to="/topics">
-            <li className="nav-item">topics</li>
-          </Link>
+          <li className="nav-item">
+            <Link to="/">Home</Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/articles">Articles</Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/users">Users</Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/topics">Topics</Link>
+          </li>
         </ul>
       </nav>
     </header>

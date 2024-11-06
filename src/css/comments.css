@@ -1,0 +1,27 @@
+/* Container for individual comment */
+.comment {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 15px;
+  margin: 10px 0;
+  background-color: #f9f9f9;
+  border-left: 4px solid #1a73e8;
+  border-radius: 8px;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Comment author */
+.comment-author {
+  font-weight: bold;
+  color: #333333;
+  font-size: 1em;
+  margin-bottom: 5px;
+}
+
+/* Comment body */
+.comment-body {
+  font-size: 0.9em;
+  color: #555555;
+  line-height: 1.4;
+}
