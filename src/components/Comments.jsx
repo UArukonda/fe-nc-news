@@ -8,19 +8,16 @@ const Comments = ({ article_id }) => {
     fetchComments(article_id).then((response) => {
       setComments(response);
     });
-  }, []);
+  }, [article_id]); // Add article_id as a dependency
+
   return (
-    <div className="comments-box`">
-      <div className="comments">
-        {comments.map((comment) => {
-          return (
-            <>
-              <p>{comment.author}</p>
-              <p>{comment.body}</p>
-            </>
-          );
-        })}
-      </div>
+    <div>
+      {comments.map((comment) => (
+        <div key={comment.comment_id} className="comment">
+          <p className="comment-author">{comment.author}</p>
+          <p className="comment-body">{comment.body}</p>
+        </div>
+      ))}
     </div>
   );
 };

@@ -9,7 +9,7 @@ const Home = () => {
         id="welcome-greeting-container"
         style={{ minHeight: "calc(50vh - 60px)" }}
       >
-        <p id="welcome-greeting">Welcome to UT Marketplace</p>
+        <p id="welcome-greeting">Welcome to NC NEWS</p>
       </section>
     </section>
   );
