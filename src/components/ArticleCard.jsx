@@ -16,7 +16,7 @@ const ArticleCard = ({ article }) => {
       </section>
       <footer>
         <p>{article.comment_count} Comments</p>
-        <p>{article.votes} Likes</p>
+        <p>{article.votes} Votes</p>
       </footer>
     </div>
   );

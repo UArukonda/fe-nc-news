@@ -27,14 +27,22 @@ export const fetchSingleArticle = (article_id) => {
 };
 
 export const fetchComments = (article_id) => {
-  console.log(article_id);
   return api
     .get(`/api/articles/${article_id}/comments`)
     .then((response) => {
-      console.log(response);
       return response.data.comments;
     })
     .catch((err) => {
       console.log(err);
+    });
+};
+
+export const addVotes = (article_id, obj) => {
+  return api
+    .patch(`/api/articles/${article_id}`, obj)
+    .then((response) => response.data.article)
+    .catch((err) => {
+      console.error("Error in addVotes:", err.message);
+      throw err;
     });
 };
