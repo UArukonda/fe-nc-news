@@ -26,3 +26,16 @@ export const fetchSingleArticle = (article_id) => {
       console.log(err);
     });
 };
+
+export const fetchComments = (article_id) => {
+  console.log(article_id);
+  return api
+    .get(`/api/articles/${article_id}/comments`)
+    .then((response) => {
+      console.log(response);
+      return response.data.comments;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};

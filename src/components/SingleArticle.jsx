@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { fetchSingleArticle } from "../utils/api";
 import { useParams } from "react-router-dom";
 import Header from "./Header";
+import Comments from "./Comments";
 
 const SingleArticle = () => {
   const { article_id } = useParams();
@@ -22,21 +23,24 @@ const SingleArticle = () => {
   return (
     <>
       <Header />
-      <section>
-        <ul className="article-card">
-          <li>User: {article.author}</li>
-          <li>
-            <img src={article.article_img_url} alt="" width={"200px"} />
-          </li>
-          <li>
-            <h2>{article.title}</h2>
-          </li>
-          <li>{article.topic}</li>
-          <li>{article.created_at}</li>
-          <li>{article.comment_count} Comments</li>
-          <li>{article.votes} Likes</li>
-        </ul>
-      </section>
+      <div className="article-card">
+        <header>
+          <p>User: {article.author}</p>
+        </header>
+
+        <img src={article.article_img_url} alt={article.title} width="200px" />
+
+        <section>
+          <h2>{article.title}</h2>
+          <p>Topic: {article.topic}</p>
+          <p>Date: {new Date(article.created_at).toLocaleDateString()}</p>
+        </section>
+        <footer>
+          <p>{article.comment_count} Comments</p>
+          <Comments article_id={article.article_id} />
+          <p>{article.votes} Likes</p>
+        </footer>
+      </div>
     </>
   );
 };
