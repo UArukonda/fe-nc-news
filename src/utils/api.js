@@ -15,6 +15,21 @@ export const fetchArticles = () => {
     });
 };
 
+export const fetchArticlesByTopic = (topic_name) => {
+  return api
+    .get(`/api/articles`, {
+      params: {
+        topic: topic_name,
+      },
+    })
+    .then((response) => {
+      return response.data.articles;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
 export const fetchSingleArticle = (article_id) => {
   return api
     .get(`/api/articles/${article_id}`)
@@ -64,4 +79,15 @@ export const deleteComment = (comment_id) => {
     .delete(`/api/comments/${comment_id}`)
     .then((response) => response)
     .catch((err) => console.log(err));
+};
+
+export const fetchTopics = () => {
+  return api
+    .get(`/api/topics`)
+    .then((response) => {
+      return response.data.topics;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 };
