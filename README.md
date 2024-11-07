@@ -14,6 +14,7 @@ A web application that allows users to view articles, sort and filter by categor
 ## Table of Contents
 
 Project Overview
+Requirements
 Features
 Technologies Used
 Installation
@@ -25,18 +26,27 @@ Contributing
 
 This application displays a collection of articles, allowing users to sort and filter them by different criteria such as date, comment count, and votes. Users can also filter articles by categories, add comments, upvote articles, and delete their comments.
 
+## Requirements
+
+Before you install and run the project, make sure you have the following requirements met:
+
+Node.js: v22.6.0 or higher
+npm: v10.8.3 or higher
+Backend API: A running backend API endpoint for fetching and managing article and comment data.
+If you don't have Node.js and npm installed, you can download them from Node.js official website(`https://nodejs.org/en`).
+
 ## Features
 
 `Article Listing`: Browse a list of articles with category and sorting filters.
 `Sort and Filter`: Sort articles by date, comment count, or votes, and filter by ascending or descending order.
-Comment Management: Add, delete, and view comments for each article.
+`Comment Management`: Add, delete, and view comments for each article.
 `Voting System`: Upvote articles to show support.
 
 ## Technologies Used
 
 `Frontend`: React, CSS
 `HTTP Client`: Axios
-`Backend`: REST API
+`Backend`: REST API (`https://github.com/UArukonda/be-review-nc-news`)
 
 # Installation
 
@@ -82,3 +92,5 @@ Contributions are welcome! Please follow these steps:
 3. Make your changes and commit them.
 4. Push to the branch: git push origin feature-name.
 5. Submit a pull request.
+
+This portfolio project was created as part of a Digital Skills Bootcamp in Software Engineering provided by [Northcoders](https://northcoders.com/)
