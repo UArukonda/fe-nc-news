@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { fetchComments } from "../utils/api";
 
-const Comments = ({ article_id }) => {
-  const [comments, setComments] = useState([]);
-
+const Comments = ({ article_id, comments, setComments }) => {
   useEffect(() => {
     fetchComments(article_id).then((response) => {
       setComments(response);

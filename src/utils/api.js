@@ -46,3 +46,15 @@ export const addVotes = (article_id, obj) => {
       throw err;
     });
 };
+
+export const addComment = (article_id, obj) => {
+  return api
+    .post(`/api/articles/${article_id}/comments`, obj)
+    .then((response) => {
+      return response.data.insertedComment;
+    })
+    .catch((err) => {
+      console.error("Error in addVotes:", err.message);
+      throw err;
+    });
+};

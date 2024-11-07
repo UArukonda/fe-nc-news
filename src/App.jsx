@@ -7,6 +7,7 @@ import { useState } from "react";
 
 function App() {
   const [votes, setVotes] = useState(0);
+  const [comments, setComments] = useState([]);
   return (
     <>
       <BrowserRouter>
@@ -15,7 +16,14 @@ function App() {
           <Route path="/articles" element={<Articles />} />
           <Route
             path="/articles/:article_id"
-            element={<SingleArticle votes={votes} setVotes={setVotes} />}
+            element={
+              <SingleArticle
+                votes={votes}
+                setVotes={setVotes}
+                comments={comments}
+                setComments={setComments}
+              />
+            }
           />
         </Routes>
       </BrowserRouter>
