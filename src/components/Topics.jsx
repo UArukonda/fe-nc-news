@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { fetchTopics, fetchArticlesByTopic } from "../utils/api";
 import Header from "./Header";
 import ArticleCard from "./ArticleCard";
+
 const Topics = ({ articleList, setArticleList }) => {
   const [topics, setTopics] = useState([]);
-  const navigate = useNavigate();
 
   useEffect(() => {
     fetchTopics().then((data) => setTopics(data));

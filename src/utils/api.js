@@ -30,6 +30,24 @@ export const fetchArticlesByTopic = (topic_name) => {
     });
 };
 
+export const sortArticles = (sort_by, order) => {
+  console.log(sort_by, order);
+  return api
+    .get(`/api/articles`, {
+      params: {
+        sort_by: sort_by,
+        order: order,
+      },
+    })
+    .then((response) => {
+      console.log(response);
+      return response.data.articles;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
 export const fetchSingleArticle = (article_id) => {
   return api
     .get(`/api/articles/${article_id}`)
