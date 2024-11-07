@@ -58,3 +58,10 @@ export const addComment = (article_id, obj) => {
       throw err;
     });
 };
+
+export const deleteComment = (comment_id) => {
+  return api
+    .delete(`/api/comments/${comment_id}`)
+    .then((response) => response)
+    .catch((err) => console.log(err));
+};

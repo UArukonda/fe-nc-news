@@ -44,6 +44,7 @@ const SingleArticle = ({ setVotes, comments, setComments }) => {
       .then((response) => {
         setUsername("");
         setCommentBody("");
+        setComments((prevComments) => [response, ...prevComments]);
       })
       .catch((error) => {
         console.error("Error adding comment:", error);
