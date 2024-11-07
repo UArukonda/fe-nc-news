@@ -4,8 +4,11 @@ import Articles from "./components/Aritcles";
 import SingleArticle from "./components/SingleArticle";
 import Home from "./components/Home";
 import { useState } from "react";
+import Topics from "./components/Topics";
+import Header from "./components/Header";
 
 function App() {
+  const [articleList, setArticleList] = useState([]);
   const [votes, setVotes] = useState(0);
   const [comments, setComments] = useState([]);
   return (
@@ -13,7 +16,15 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/articles" element={<Articles />} />
+          <Route
+            path="/articles"
+            element={
+              <Articles
+                articleList={articleList}
+                setArticleList={setArticleList}
+              />
+            }
+          />
           <Route
             path="/articles/:article_id"
             element={
@@ -22,6 +33,15 @@ function App() {
                 setVotes={setVotes}
                 comments={comments}
                 setComments={setComments}
+              />
+            }
+          />
+          <Route
+            path="/topics"
+            element={
+              <Topics
+                articleList={articleList}
+                setArticleList={setArticleList}
               />
             }
           />

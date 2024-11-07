@@ -3,8 +3,7 @@ import { fetchArticles } from "../utils/api";
 import ArticleCard from "./ArticleCard";
 import Header from "./Header";
 
-const Articles = () => {
-  const [articleList, setArticleList] = useState([]);
+const Articles = ({ articleList, setArticleList }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
