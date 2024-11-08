@@ -8,18 +8,25 @@ const Articles = ({ articleList, setArticleList }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [sortBy, setSortBy] = useState("created_at");
   const [orderBy, setOrderBy] = useState("asc");
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetchArticles().then((response) => {
-      setArticleList(response);
-      setIsLoading(false);
-    });
+    fetchArticles()
+      .then((response) => {
+        setArticleList(response);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setError(`${err.status} Failed to fetch articles. Please try again.`);
+      });
   }, []);
 
   useEffect(() => {
     sortArticles(sortBy, orderBy)
       .then((data) => setArticleList(data))
-      .catch((error) => console.error(error));
+      .catch((error) => {
+        console.log(err);
+      });
   }, [sortBy, orderBy]);
 
   const handleSortChange = (e) => {
@@ -48,7 +55,6 @@ const Articles = ({ articleList, setArticleList }) => {
           <option value="desc">High to Low</option>
         </select>
       </div>
-
       <section>
         <ul className="article-list">
           {articleList.map((article) => (
