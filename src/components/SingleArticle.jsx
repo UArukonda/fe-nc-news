@@ -15,6 +15,7 @@ const SingleArticle = ({ setVotes, comments, setComments }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [username, setUsername] = useState("");
   const [commentBody, setCommentBody] = useState("");
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     fetchSingleArticle(article_id).then((response) => {
@@ -40,14 +41,18 @@ const SingleArticle = ({ setVotes, comments, setComments }) => {
   };
 
   const handleAddCommentClick = (e) => {
+    e.preventDefault();
+    setError(null);
     addComment(article_id, { username, comment: commentBody })
       .then((response) => {
         setUsername("");
         setCommentBody("");
         setComments((prevComments) => [response, ...prevComments]);
       })
-      .catch((error) => {
-        console.error("Error adding comment:", error);
+      .catch((err) => {
+        console.log(err);
+        const errorMsg = err.response?.data?.message || "Invalid username.";
+        setError(errorMsg);
       });
   };
 
@@ -67,7 +72,7 @@ const SingleArticle = ({ setVotes, comments, setComments }) => {
           <p>Topic: {article.topic}</p>
           <p>Date: {new Date(article.created_at).toLocaleDateString()}</p>
         </section>
-        <footer>
+        <section className="comments-form">
           <p>{article.comment_count} Comments</p>
           <div className="comments-box">
             <Comments
@@ -93,6 +98,11 @@ const SingleArticle = ({ setVotes, comments, setComments }) => {
                 onChange={(e) => setCommentBody(e.target.value)}
               />
               <button onClick={handleAddCommentClick}>Add Comment</button>
+              {error && (
+                <p className="error-message" style={{ color: "red" }}>
+                  {error}
+                </p>
+              )}
             </div>
           </div>
           <div className="votes">
@@ -111,7 +121,7 @@ const SingleArticle = ({ setVotes, comments, setComments }) => {
               Vote
             </button>
           </div>
-        </footer>
+        </section>
       </div>
     </>
   );
